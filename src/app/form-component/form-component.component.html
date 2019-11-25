@@ -1,0 +1,66 @@
+<br />
+<div class="container">
+
+  <form [formGroup]="registerForm" (ngSubmit)="getInputData(registerForm)" class="">
+    <!-- <div class="form-group " [ngClass]="{'red-border': registerForm.get('fName').errors &&
+     registerForm.get('fName').touched || registerForm.get('fName').dirty }"> -->
+     <div class="form-group " [ngClass]="{'was-validated': registerForm.get('fName').errors &&
+     (registerForm.get('fName').touched || registerForm.get('fName').dirty)}">
+      <label for="email">FName:</label>
+      <input type="text" class="form-control " formControlName="fName" placeholder="Enter name" required>
+      <!-- <input type="text" class="form-control" formControlName="fName" placeholder="Enter name"> -->
+     <span *ngIf="registerForm.get('fName').errors && (registerForm.get('fName').touched || registerForm.get('fName').dirty )">
+       <!-- <label>{{firstNameLength}}</label> -->
+     <span *ngIf="registerForm.get('fName').errors.required" class=""> 
+        Name is required!
+       </span>
+       <!-- <span *ngIf="registerForm.get('fName').errors.minlength || registerForm.get('fName').errors.maxlength">
+         Name must be greater than5 and less than 8.
+         </span> -->
+     </span>
+    </div>
+    <!-- implement error message json object -->
+    <div class="form-group">
+      <label for="pwd">LastName:</label>
+      <input type="text" class="form-control" formControlName="lastname" placeholder="Enter last name" required>
+      
+    </div>
+    <div formGroupName="skills">
+      <input type="text" class="form-control" formControlName="address" placeholder="Enter address" required /><br />
+      <label class="radio-inline"> <input type="radio" formControlName="rdIndia"
+          value="India" />India</label>&nbsp;&nbsp;
+      <label class="radio-inline"> <input type="radio" formControlName="rdAus" value="Australia" />Australia</label>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Click" [disabled]="!registerForm.valid" />&nbsp;&nbsp;
+    <input type="submit" class="btn btn-primary" value="Reset" (click)="registerForm.reset()" />&nbsp;
+    <input type="submit" class="btn btn-primary" value="Load Data" (click)="setValue()" />&nbsp;
+    <input type="submit" class="btn btn-primary" value="Test Data" (click)="onloadGetLoopErrorControls()" />
+  </form>
+  <br />
+  <table class="table table-stripped">
+    <tr>
+      <th>Form Group</th>
+      <th>Form Control</th>
+    </tr>
+    <tr>
+      <td>
+        touched: : {{registerForm.touched}}
+        <br /> dirty: {{registerForm.dirty}}
+        <br /> dirty: {{registerForm.valid}}
+        <br /> Form Value: {{jsonData}}
+      </td>
+
+
+      <td>
+        touched: : {{registerForm.get('fName').touched}}<br />
+        dirty: : {{registerForm.get('fName').dirty}}<br />
+        valid: : {{registerForm.get('fName').valid}}<br />
+        Full Name value: : {{registerForm.get('fName').value}}
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- {{firstName}}
+  {{jsonData }} -->

@@ -1,0 +1,55 @@
+==============Angular file setting=========================
+dependencies: for prod version sccript
+devDependencies: form Dev enviroment
+
+package.json: project dev important
+packgage.log.josn: veersion installed in system
+
+~6.8.2 = install only revision(bug)
+^6.8.2 = minor and revesion check and upper level intall
+7.0.0 = major(Breaking change).minor(new feature).revision(Bug) //Angular version
+
+
+
+
+
+
+
+
+
+====================End==========================
+Reactive Form
+
+FormBuilder methods
+1) controls
+2) group
+3) array
+
+call in
+
+
+form group: collectio of child controls
+form builder: 
+
+=======validators================
+requiref function
+
+1) required
+2) requiredTrue
+3) email
+4) Pattern
+5) min & Max (length)
+
+valid :
+Invalid:
+Touch :write for click
+Touched:
+Pristine: As it is control render(clean)
+Dirty:type text
+errors:
+
+FormControl: It tracks the value and validation status of the individual form control.
+
+FormGroup: It tracks the same values and status for the collection of form controls.
+FormArray:It tracks the same values and status for the array of the form controls.
+ControlValueAccessor: It creates the bridge between Angular FormControl instances and native DOM elements.
